@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern & Şık Web Sitesi</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS RESET & VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* HEADER / NAVBAR */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-btn {
+            background: var(--gradient);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            padding: 140px 8% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Arka Plan Işık Efektleri */
+        .glow-1 {
+            position: absolute;
+            top: 20%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(99, 102, 241, 0.25);
+            filter: blur(150px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .glow-2 {
+            position: absolute;
+            bottom: 10%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(168, 85, 247, 0.2);
+            filter: blur(150px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-card {
+            width: 420px;
+            height: 480px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero-card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 60px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: left;
+            transition: 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(99, 102, 241, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding: 40px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .socials a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: 0.3s ease;
+        }
+
+        .socials a:hover {
+            color: var(--text-main);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                gap: 50px;
+                text-align: center;
+                padding-top: 120px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-card {
+                width: 100%;
+                max-width: 380px;
+                height: 380px;
+            }
+
+            nav ul {
+                display: none; /* Basit mobil tasarım için menü gizlendi */
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LIGHT EFFECTS -->
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+
+    <!-- HEADER -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fa-solid fa-cube" style="color: #6366f1;"></i>
+            AURA<span>.</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#ana-sayfa">Ana Sayfa</a></li>
+                <li><a href="#ozellikler">Özellikler</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+        <a href="#basla" class="nav-btn">Başlayın</a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="ana-sayfa">
+        <div class="hero-content">
+            <div class="badge">
+                <i class="fa-solid fa-sparkles"></i> Geleceğin Web Deneyimi
+            </div>
+            <h1>Dijital Varlığınızı <span>Yeniden</span> Tanımlayın.</h1>
+            <p>Sadece tek bir HTML dosyasıyla ultra hızlı, modern ve büyüleyici web deneyimleri tasarlayın. Kolay entegrasyon ve şık tasarımın buluşma noktası.</p>
+            <div class="hero-btns">
+                <a href="#" class="nav-btn">Proje Başlat</a>
+                <a href="#ozellikler" class="btn-secondary">Keşfet</a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-card-icon">
+                <i class="fa-solid fa-bolt" style="color: #fff;"></i>
+            </div>
+            <div>
+                <h3>Maksimum Performans</h3>
+                <p style="color: var(--text-muted); margin-top: 8px;">Gereksiz kütüphaneler olmadan hızlı ve akıcı animasyonlar.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border: 1px solid var(--card-border);">
+                <small style="color: var(--secondary); font-weight: 700;">Özel Tasarım</small>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
+                    <span>Duyarlı & Mobil Uyumlu</span>
+                    <i class="fa-solid fa-check" style="color: #10b981;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="ozellikler">
+        <h2 class="section-title">Neden Biz?</h2>
+        <p class="section-subtitle">Ağır framework'lere ihtiyaç duymadan, saf güç ve modern tasarımla geliştirildi.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-wand-magic-sparkles feature-icon"></i>
+                <h3>Şık Tasarım</h3>
+                <p>Glassmorphism ve neon gradyan efektleriyle modernize edilmiş minimalist görünüm.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-gauge-high feature-icon"></i>
+                <h3>Yüksek Hız</h3>
+                <p>Ekstra bağımlılıklar olmadan anında yüklenen süper optimize altyapı.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-mobile-screen feature-icon"></i>
+                <h3>Tam Mobil Uyum</h3>
+                <p>Tüm ekran boyutlarında kusursuz görünen esnek ve responsive yapı.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 AURA Inc. Tüm hakları saklıdır.</p>
+        <div class="socials">
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>
